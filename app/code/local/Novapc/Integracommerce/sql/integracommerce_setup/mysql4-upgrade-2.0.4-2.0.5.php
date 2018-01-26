@@ -20,7 +20,7 @@ if (!empty($tablePrefix)) {
     $queueTable = $tablePrefix . 'npcintegra_product_queue';
     $attrTable = $tablePrefix . 'npcintegra_sku_attributes';
 } else {
-    $queueTable = 'npcintegra_order_queue';
+    $queueTable = 'npcintegra_product_queue';
     $attrTable = 'npcintegra_sku_attributes';
 }
 
