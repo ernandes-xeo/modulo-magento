@@ -44,15 +44,18 @@ class Novapc_Integracommerce_Helper_OrderData extends Novapc_Integracommerce_Hel
         }
 
         if (!empty($customerDoc)) {
+            $store = Mage::helper('integracommerce/data')->getStore();
             $customerCollection = Mage::getModel('customer/customer')
                 ->getCollection()
                 ->addFieldToFilter('taxvat', $customerDoc)
-                ->addAttributeToSelect('*')
-                ->setPageSize(1)
-                ->setCurPage(1);
+                ->addAttributeToSelect('*');
 
-            foreach ($customerCollection as $customer) {
-                $customerId = $customer->getId();
+            foreach ($customerCollection as $customerData) {
+                if ($customerData->isInStore($store) == true) {
+                    $customerId = $customerData->getId();
+                    $customer = $customerData;
+                    break;
+                }
             }
         }
 

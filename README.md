@@ -1,7 +1,7 @@
 # Módulo de integração Integracommerce e Magento
 
 ### Versão Atual
-#### 2.1.2
+#### 2.1.3
 
 **IMPORTANTE**
 ===============
